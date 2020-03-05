@@ -1,3 +1,13 @@
-<Textarea @value={{model.content}} @maxlength={{model.MAX}}/>
-{{model.size}}
+<div class="ui form">
+  <div class="field">
+    <Textarea @value={{model.content}} @maxlength={{model.MAX}} />
+    <div class="ui message">
+      {{model.size}} restant
+    </div>
+    <div class="ui {{model.syle}} message">
+      {{model.info}}
+    </div>
+    <button {{action "reset" model}}> Effacer</button>
+  </div>
+</div>
 {{outlet}}
