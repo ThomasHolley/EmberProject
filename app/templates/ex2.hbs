@@ -1,14 +1,16 @@
-<h1>Services</h1>
 
-  <div class="ui message">
-    Choisissez les éléments à inclure :
-    {{model.countActive}}
+<div class="ui horizontal divider header">
+  <h1>Services</h1>
+  <div class="ui label">
+    {{pluralize model.countActive " aucun service" " 1 service" " Services"}}
   </div>
-<ul>
-  {{#each model.services as |service|}}
-    <li><button class="ui button {{if service.active "positive" ""}}" {{action "toogleActive" service}}>{{service.name}} {{service.price}}€</button></li><br>
-  {{/each}}
-</ul>
-<hr>
- Total : {{model.total}}
+  <ul>
+    {{#each model.services as |service|}}
+      <li class="ui button {{if service.active "positive" ""}}" {{action "toogleActive" service}}>{{service.name}} {{service.price}}€</li><br><br>
+    {{/each}}
+  </ul>
+  <hr>
+
+  Total : {{model.sumActive}} €
+</div>
 {{outlet}}

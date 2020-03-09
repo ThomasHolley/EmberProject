@@ -1,19 +1,17 @@
 import EmberObject, { computed } from '@ember/object';
 
 export default EmberObject.extend({
-  services: [],
-  countActive: computed('services', function(){
-    var count = 0;
-    this.get("services").forEach(element => {
-
-      if(element.active){
-        count = count +1;
-      }
-    });
-    return count;
+  // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
+countActive:computed('services.@each.active',function(){
+  let servicesActifs=this.get('services').filterBy('active',true);
+    return servicesActifs.length;
 
   }),
-  sumActive: computed('services',function(){
+  sumActive: computed('services.@each.active',function(){
+    let servicesActifs=this.get('services').filterBy('active',true);
+    let total=0;
+    servicesActifs.forEach((service)=>{total+=service.price;});
+    return total;
 
-  })
+    })
 });
