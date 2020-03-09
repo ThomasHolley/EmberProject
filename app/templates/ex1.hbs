@@ -1,13 +1,15 @@
 <div class="ui form">
   <div class="field">
-    <Textarea @value={{model.content}} @maxlength={{model.MAX}} />
-    <div class="ui message">
-      {{model.size}} restant
-    </div>
-    <div class="ui {{model.syle}} message">
-      {{model.info}}
-    </div>
-    <button {{action "reset" model}}> Effacer</button>
+    <Textarea class=" " @value={{model.content}} @maxlength={{model.MAX}} />
   </div>
 </div>
+  <div class="ui {{model.style}} message">
+    Nombre de caractères restant : {{model.size}}
+  </div>
+  <div class="ui {{model.syle}} message">
+    {{model.info}}
+  </div>
+  <button {{action "save" model}}> Enregistrement</button>
+  <button {{action "reset" model}}> Effacer</button>
+
 {{outlet}}

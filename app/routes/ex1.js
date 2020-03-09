@@ -7,7 +7,11 @@ export default Route.extend({
   },
   actions: {
     reset(m) {
-      m.set("content");
+      m.set('content', '');
+      m.set('info', '');
+    },
+    save(m){
+      m.set('info', 'Note sauvegardé');
     }
   }
 });
