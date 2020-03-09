@@ -10,7 +10,14 @@
     {{/each}}
   </ul>
   <hr>
-
   Total : {{model.sumActive}} €
+</div>
+<div class="ui form">
+  <div class="ui field">
+    <Input @value={{model.codePromo}}/>
+  </div>
+</div>
+<div class="ui label">
+  {{model.promo}}
 </div>
 {{outlet}}

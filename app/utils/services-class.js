@@ -12,6 +12,9 @@ countActive:computed('services.@each.active',function(){
     let total=0;
     servicesActifs.forEach((service)=>{total+=service.price;});
     return total;
-
+    }),
+    promo:computed('codePromo','sumActive',function(){
+      let promos=this.get('promos');
+      let 
     })
 });
